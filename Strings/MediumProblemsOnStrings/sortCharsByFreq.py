@@ -30,9 +30,23 @@ class Solution:
     '''
     def sortCharactersByFrequency(self, s):
         temp = []
+        for i in range(26):
+            temp.append((0, chr(i + ord('a'))))
+        # print(temp)
+        
+        for ch in s:
+            index = ord(ch) - ord('a')
+            temp[index] = (temp[index][0] + 1,ch)
+            
+        temp.sort(key=lambda x: (-x[0], x[1]))
+        # print(temp)
+        result = [ch for i, ch in temp if i > 0]
+        return result
         
 
 if __name__ == "__main__":
     sols = Solution()
     s = 'tree'
+    print("Output: ", sols.sortCharactersByFrequency(s))
+    s = "raaaajj"
     print("Output: ", sols.sortCharactersByFrequency(s))
