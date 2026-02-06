@@ -17,3 +17,11 @@ if __name__ == "__main__":
         print("True")
     else:
         print("False")
+        
+    nums = [4, 3, 9, 2]
+    k = 10
+    print("Output: ", end="")
+    if checkSubseqExists(nums, 0, k):
+        print("True")
+    else:
+        print("False")
