@@ -26,3 +26,10 @@ sol = Solution()
 ans = sol.singleNumber(nums)
 
 print("The single numbers in given array are:", ans[0], "and", ans[1])
+
+
+'''
+Time Complexity: O(N). Where N is the size of the array
+
+Space Complexity: O(1). No extra space used
+'''
