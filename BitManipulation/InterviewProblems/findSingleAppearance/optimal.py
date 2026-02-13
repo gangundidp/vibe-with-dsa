@@ -21,7 +21,7 @@ class Solution:
         return [XOR1, XOR2] if XOR1 < XOR2 else [XOR2, XOR1]
 
 
-nums = [1, 2, 1, 3, 5, 2]
+nums = [1, 2, 1, 5, 3, 2]
 sol = Solution()
 ans = sol.singleNumber(nums)
 
