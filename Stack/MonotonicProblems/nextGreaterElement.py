@@ -22,6 +22,31 @@ class Solution:
             idx += 1
         return 0
     
+    def nextGE(self, nums1, nums2):
+        n = len(nums2)
+        st = []
+        res = [-1] * n
+        
+        for i in range(n -1, -1, -1):
+            while st and st[-1] <= nums2[i]:
+                st.pop()
+            if st:
+                res[i] = st[-1]
+            st.append(nums2[i])
+        
+        # return res
+            
+        mpp = {}
+        for i in range(n):
+            mpp[nums2[i]] = res[i]
+
+        final_res = []
+        for i in range(len(nums1)):
+            final_res.append(mpp[nums1[i]])
+        
+        return final_res
+                
+    
 if __name__ == "__main__":
     sols = Solution()
     
@@ -29,3 +54,4 @@ if __name__ == "__main__":
     nums2 = [1, 3, 4, 2]
 
     print("Output: ", sols.nextGreaterElement(nums1, nums2))
+    print("Output: ", sols.nextGE(nums1, nums2))

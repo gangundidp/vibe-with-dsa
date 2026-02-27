@@ -9,7 +9,7 @@ def countNGEs(nums, indices):
                 count += 1
             j += 1
         
-        ans.append(count) if count else ans.append(count)
+        ans.append(count)
         
     return ans
 
