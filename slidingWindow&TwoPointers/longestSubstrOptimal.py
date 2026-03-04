@@ -2,6 +2,7 @@ class Solution:
     def longestSubstr(self, s):
         n = len(s)
         hash_map = [-1] * 256
+        # d = {}
         
         l, r, max_len = 0, 0, 0
         while r < n:
@@ -9,9 +10,13 @@ class Solution:
             if hash_map[ord(s[r])] != -1:
                 l = max(hash_map[ord(s[r])] + 1, l) # Updating the left pointer
 
+            # if d.get(s[r], -1) != -1:
+            #     l = max(d.get(s[r]) + 1, l)
+
             curr_len = r - l + 1
             max_len = max(max_len, curr_len)
             hash_map[ord(s[r])] = r # storing the index
+            # d[s[r]] = r # storing the index
             r += 1
             
         return max_len
