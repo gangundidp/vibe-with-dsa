@@ -1,7 +1,5 @@
 class Solution:
     def numSubarraysWithSumBrute(self, nums, goal):
-        maxi = 0
-        
         count = 0
         for i in range(len(nums)):
             sum = 0
@@ -72,6 +70,12 @@ if __name__ == "__main__":
     
     nums = [0, 0, 0, 0, 0, 0]
     goal = 0
+    print("Output: ", sol.numSubarraysWithSumBrute(nums, goal)) 
+    print("Output: ", sol.numSubarraysWithSumBetter(nums, goal)) 
+    print("Output: ", sol.numSubarraysWithSum(nums, goal)) 
+    
+    nums = [1, 0, 0, 1, 1, 0]
+    goal = 2
     print("Output: ", sol.numSubarraysWithSumBrute(nums, goal)) 
     print("Output: ", sol.numSubarraysWithSumBetter(nums, goal)) 
     print("Output: ", sol.numSubarraysWithSum(nums, goal)) 
