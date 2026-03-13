@@ -22,6 +22,38 @@ class Solution:
         
         return count
     
+    def countNiceSubarraysBetter(self, nums, k):
+        prefix_sum_count = {0: 1}
+        count = 0
+        curr_sum = 0
+        
+        for num in nums:
+            curr_sum += (num & 1)
+            
+            if curr_sum - k in prefix_sum_count:
+                count += prefix_sum_count[curr_sum - k]
+            
+            prefix_sum_count[curr_sum] = prefix_sum_count.get(curr_sum, 0) + 1
+        
+        return count
+    
+    def numberOfSubarraysBetter(self, nums, k):
+        freq = {0: 1}
+        oddCount = 0
+        res = 0
+        
+        for num in nums:
+            if num%2 != 0:
+                oddCount += 1
+                
+            # Add freq of the (oddCount -k ) to the result
+            res += freq.get(oddCount - k, 0)
+
+            # Store current oddCount Frequency
+            freq[oddCount] = freq.get(oddCount, 0) + 1
+            
+        return res
+    
     def countAtMost(self, nums, k):
         left = 0
         res = 0
@@ -48,4 +80,6 @@ if __name__ == "__main__":
     k = 3
     sol = Solution()
     print("Output: ", sol.numberOfSubarrays(nums, k))
+    print("Output: ", sol.numberOfSubarraysBetter(nums, k))
     print("Output: ", sol.countNiceSubarrays(nums, k))
+    print("Output: ", sol.countNiceSubarraysBetter(nums, k))
