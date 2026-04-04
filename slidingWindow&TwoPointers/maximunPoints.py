@@ -46,3 +46,9 @@ if __name__ == "__main__":
     sol = Solution()
     print("Output: ", sol.maxScoreBrute(cards, k))
     print("Output: ", sol.maxScore(cards, k))
+    
+    cards = [2, 3, 1, 4]
+    k = 2
+    sol = Solution()
+    print("Output: ", sol.maxScoreBrute(cards, k))
+    print("Output: ", sol.maxScore(cards, k))
